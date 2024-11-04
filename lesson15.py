@@ -1,6 +1,8 @@
 # inheritance
 # error handling
 # dates
+from datetime import datetime, date
+
 
 class Employee:
     def __init__(self, name, id_number, dob, gender):
@@ -8,6 +10,8 @@ class Employee:
         self.id_number = id_number
         self.dob = dob
         self.gender = gender
+        date_of_birth = datetime.strptime(dob, '%Y-%m-%d')
+        self.age = date.today().year - date_of_birth.year
 
     def print_details(self):
         print(f"Name: {self.name}\nID: {self.id_number}\nDOB: {self.dob}\nGender: {self.gender}")
@@ -40,5 +44,5 @@ p1 = PermanentEmployee(salary=10000, name="Gloria Atieno", id_number="1234", dob
 p1.print_details()
 p1.print_salary()
 
-t1 = TemporaryEmployee("Job Ray", "333333","1999-03-14", "M", 1000, "2024-12-23" )
+t1 = TemporaryEmployee("Job Ray", "333333","1999-03-14", "M", 100000, 1000, "2024-12-23" )
 t1.print_details()
